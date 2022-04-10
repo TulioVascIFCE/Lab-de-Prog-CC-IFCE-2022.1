@@ -22,12 +22,3 @@ int main()
 */
     return (0);
 }
-
-#in c lud e <s t d i o . h>
-i n t main ( )
-{
-p r i n t f ( " Re sultado item a : %d\n" , 7 + 3 ∗ 6 / 2 − 1) ;
-p r i n t f ( " Re sultado item b : %d\n" , 2 % 2 + 2 ∗ 2 − 2 / 2) ;
-p r i n t f ( " Re sultado item c : %d\n" , (3 ∗ 9 ∗ (3 + (9 ∗ 3 / ( 3 ) ) ) ) ) ;
-r etu rn ( 0 ) ;
-}
