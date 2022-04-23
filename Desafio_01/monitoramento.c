@@ -34,13 +34,13 @@ int main(){
         armarios = armarios | aleatorio;
         
         //  Exibindo os armarios
-        printf("Estado dos Armarios:\t");
+        printf("Estado dos Armarios: ");
         for (int j = 7; j >= 0; j--){
           aux = (armarios & (1 << j)) ? 1 : 0;
           printf("%u", aux);
         }
-        printf("\t(0 -- Desocupado\t1 -- Ocupado)");
-        printf("\nPosicoes:\t\t\t76543210\n");
+        printf(" (0-Desocupado 1-Ocupado)");
+        printf("\nPosicoes: \t\t\t76543210\n");
         
         break;
       
@@ -50,12 +50,13 @@ int main(){
         puts("Escolha um armario para desocupar:");
 
         //  Exibindo os armarios
-        printf("Mapa dos Armarios:\t");
+        printf("Estado dos Armarios: ");
         for (int j = 7; j >= 0; j--){
           aux = (armarios & (1 << j)) ? 1 : 0;
           printf("%u", aux);
         }
-        printf("\nPosicoes:\t\t\t76543210\n");
+        printf(" (0-Desocupado 1-Ocupado)");
+        printf("\nPosicoes: \t\t\t76543210\n");
 
         //  Lendo a posição que será desocupada
         scanf("%hhu", &aux);
@@ -64,12 +65,13 @@ int main(){
         armarios = armarios & (~(1 << aux));
 
         //  Exibindo os armarios
-        printf("Mapa dos Armarios:\t");
+        printf("Estado dos Armarios: ");
         for (int j = 7; j >= 0; j--){
           aux = (armarios & (1 << j)) ? 1 : 0;
           printf("%u", aux);
         }
-        printf("\nPosicoes:\t\t\t76543210\n");
+        printf(" (0-Desocupado 1-Ocupado)");
+        printf("\nPosicoes: \t\t\t76543210\n");
 
         break;
 
