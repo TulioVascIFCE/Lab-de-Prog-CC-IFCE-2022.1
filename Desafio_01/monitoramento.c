@@ -7,7 +7,7 @@
 int main(){
 
   //  Declarando Variáveis
-  unsigned char menu, aleatorio, aux, mapa_binario, armarios = 0;
+  unsigned char menu, aleatorio, aux, armarios = 0;
   
   //  Entrando no Programa
   do {
@@ -34,12 +34,12 @@ int main(){
         armarios = armarios | aleatorio;
         
         //  Exibindo os armarios
-        printf("Mapa dos Armarios:\t");
+        printf("Estado dos Armarios:\t");
         for (int j = 7; j >= 0; j--){
-          aux = 1 << j;
-          mapa_binario = (armarios & aux) ? 1 : 0;
-          printf("%u", mapa_binario);
+          aux = (armarios & (1 << j)) ? 1 : 0;
+          printf("%u", aux);
         }
+        printf("\t(0 -- Desocupado\t1 -- Ocupado)");
         printf("\nPosicoes:\t\t\t76543210\n");
         
         break;
@@ -52,9 +52,8 @@ int main(){
         //  Exibindo os armarios
         printf("Mapa dos Armarios:\t");
         for (int j = 7; j >= 0; j--){
-          aux = 1 << j;
-          mapa_binario = (armarios & aux) ? 1 : 0;
-          printf("%u", mapa_binario);
+          aux = (armarios & (1 << j)) ? 1 : 0;
+          printf("%u", aux);
         }
         printf("\nPosicoes:\t\t\t76543210\n");
 
@@ -67,37 +66,24 @@ int main(){
         //  Exibindo os armarios
         printf("Mapa dos Armarios:\t");
         for (int j = 7; j >= 0; j--){
-          aux = 1 << j;
-          mapa_binario = (armarios & aux) ? 1 : 0;
-          printf("%u", mapa_binario);
+          aux = (armarios & (1 << j)) ? 1 : 0;
+          printf("%u", aux);
         }
         printf("\nPosicoes:\t\t\t76543210\n");
-        
+
         break;
-      
+
       default:
-        
+
+        if (menu < 1 || menu > 3) puts("Opção Invalida");
+
         break;
-      
+
     }
     
   }while(menu != 3);
-  /*
-  for (int i = 0; i < 100; i++){
-    aleatorio = rand() % QTD_ARMARIOS;
-    printf ("%X\n", aleatorio);
-  }
-  
-  //printf ("%X\n", mapa);
-  */
 
   printf("\nFim do Programa\n");
   
   return EXIT_SUCCESS;
 }
-
-/*
-v[k] = v[k]^v[k+1];
-v[k+1] = v[k]^v[k+1];
-v[k] = v[k]^v[k+1];
-*/
