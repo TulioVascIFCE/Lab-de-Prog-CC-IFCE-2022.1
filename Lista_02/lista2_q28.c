@@ -2,9 +2,9 @@
 
 int main(){
   
-  unsigned char valor_x, valor_y = 5, aux, antes, suces;
+  unsigned char valor_x = 255, valor_y = 128, aux, antecessor, sucessor;
 
-  
+  /*
   puts("Entre com um caractere para X:");
   valor_x = getchar();
 
@@ -12,26 +12,27 @@ int main(){
   
   puts("Entre com um caractere para Y maior ou igual a 5:");
   valor_y = getchar();
+  */
   
   for (int i = 1; i <= 4; i++){
-    antes = valor_y - i;
-    printf("Antecesor (-%d): %u\n", i, antes);
-    aux = 1 << (9 - i);
+    antecessor = valor_y - i;
+    printf("Antecesor (Y - %d): %u\n", i, antecessor);
+    aux = 1 << (4 - i);
     aux = aux & valor_x;
-    aux = aux >> (9 - i);
-    antes = antes >> 1;
-    antes = antes << 1;
-    antes = antes | aux;
-    printf("Antecessor (-%d) com novo bit: %u\n", i, antes);
-    suces = valor_y + i;
-    printf("Sucessor (+%d): %u\n", i, suces);
-    aux = 1 << (5 - i);
+    aux = aux >> (4 - i);
+    antecessor = antecessor >> 1;
+    antecessor = antecessor << 1;
+    antecessor = antecessor | aux;
+    printf("Antecessor (Y - %d) com bit %d: %u\n", i, 5 - i, antecessor);
+    sucessor = valor_y + i;
+    printf("Sucessor (Y + %d): %u\n", i, sucessor);
+    aux = 1 << (3 + i);
     aux = aux & valor_x;
-    aux = aux >> (5 - i);
-    suces = suces >> 1;
-    suces = suces << 1;
-    suces = suces | aux;
-    printf("Sucessor (+%d) com novo bit: %u\n", i, suces);
+    aux = aux >> (3 + i);
+    sucessor = sucessor >> 1;
+    sucessor = sucessor << 1;
+    sucessor = sucessor | aux;
+    printf("Sucessor (Y + %d) com bit %d: %u\n", i, 4 + i, sucessor);
   }
   
   printf("Fim do Programa!\n");
