@@ -20,8 +20,7 @@ int main(){
     aux = 1 << (4 - i);
     aux = aux & valor_x;
     aux = aux >> (4 - i);
-    antecessor = antecessor >> 1;
-    antecessor = antecessor << 1;
+    antecessor = antecessor & (~1);
     antecessor = antecessor | aux;
     printf("Antecessor (Y - %d) com bit %d: %u\n", i, 5 - i, antecessor);
     sucessor = valor_y + i;
@@ -29,8 +28,7 @@ int main(){
     aux = 1 << (3 + i);
     aux = aux & valor_x;
     aux = aux >> (3 + i);
-    sucessor = sucessor >> 1;
-    sucessor = sucessor << 1;
+    sucessor = sucessor & (~1); 
     sucessor = sucessor | aux;
     printf("Sucessor (Y + %d) com bit %d: %u\n", i, 4 + i, sucessor);
   }

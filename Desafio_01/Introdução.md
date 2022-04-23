@@ -1,8 +1,8 @@
 # Questão Desafio 1
-Imagine que você foi contratado para desenvolver um sistema para gerenciar os arm ́arios de alunos de
+Imagine que você foi contratado para desenvolver um sistema para gerenciar os armários de alunos de
 uma universidade.
 
-Inicialmente, você terá que fazer uma prova de conceito para 8 armários. Devido às limitacões de memória no dispositivo onde seu código será embarcado, você optou por utilizar um mapa de bits.Dessa forma, para cada armário você irá associar um bit, sendo 0 para disponível e 1 para ocupado. Você deverá usar uma UNICA variável do tipo 'char' sem sinal para controle (Não utilize vetores).
+Inicialmente, você terá que fazer uma prova de conceito para 8 armários. Devido às limitacões de memória no dispositivo onde seu código será embarcado, você optou por utilizar um mapa de bits. Dessa forma, para cada armário você irá associar um bit, sendo 0 para disponível e 1 para ocupado. Você deverá usar uma UNICA variável do tipo 'char' sem sinal para controle (Não utilize vetores).
 
 O sistema funcionará da seguinte forma: Inicialmente, você deve exibir um menu para o usuário com as seguintes opcões:
 
