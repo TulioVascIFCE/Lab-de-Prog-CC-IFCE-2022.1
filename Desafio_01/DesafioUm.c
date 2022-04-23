@@ -22,8 +22,8 @@ int main () {
     //  Apresentando o Menu
     puts ("Olá usuario!");
     puts ("Escolha umas das opções do Menu");
-    puts ("1. Ocupar Armario");
-    puts ("2. Desocupar Armario");
+    puts ("1. Ocupar Armário");
+    puts ("2. Desocupar Armário");
     puts ("3. Sair");
     
     //  Lendo a opção do Menu
@@ -40,7 +40,7 @@ int main () {
       case 2:
         
         //  Selecionando o armário que será desocupado
-        puts ("Escolha uma posicao para desocupar:");
+        puts ("Escolha uma posição para desocupar:");
         imprimirMapa (armarios);
         armarios = desocupandoArmarios(armarios);
         imprimirMapa (armarios);
@@ -48,7 +48,7 @@ int main () {
       
       default:
         
-        if (menu != 3) puts("Opção Invalida");
+        if (menu != 3) puts("Opção Inválida");
         break;
       
       }
@@ -67,7 +67,7 @@ unsigned char ocupandoArmarios (unsigned char armarios) {
   aux = 1 << (rand() % QTD_ARMARIOS);
   aux = armarios | aux;
   if (armarios == aux) {
-    puts("Atribuicao invalida -- Posicao ja ocupada");
+    puts("Atribuição inválida -- Posição já ocupada");
     }
   else armarios = aux;  
   return armarios;
@@ -80,11 +80,11 @@ unsigned char desocupandoArmarios (unsigned char armarios) {
   unsigned char aux;
   scanf ("%hhu", &aux);
   if (aux < 0 || aux > 7) {
-    puts("Atribuicao invalida -- Posicao invalida");
+    puts("Atribuição inválida -- Posição inválida");
     }
   else aux = armarios & (~(1 << aux));
   if (armarios == aux) {
-          puts("Atribuicao invalida -- Posicao ja desocupada");
+          puts("Atribuição inválida -- Posição já desocupada");
     }
   else armarios = aux;
   return armarios;
@@ -96,12 +96,12 @@ unsigned char desocupandoArmarios (unsigned char armarios) {
 /////////////////////////////////////////////
 void imprimirMapa (unsigned char armarios) {
   unsigned char aux;
-  printf("Armarios:\t");
+  printf("Armários:\t");
   for (int j = 7; j >= 0; j--) {
     aux = (armarios & (1 << j)) ? 1 : 0;
     printf("%u", aux);
     }
   printf ("\t(0-Desocupado 1-Ocupado)");
-  printf ("\nPosicoes:\t76543210\n");
+  printf ("\nPosições:\t76543210\n");
   }
 ////////////////////////////////////////////
