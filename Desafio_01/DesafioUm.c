@@ -64,12 +64,15 @@ int main () {
 /////////////////////////////////////////////////////////
 unsigned char ocupandoArmarios (unsigned char armarios) {
   unsigned char aux;
-  aux = 1 << (rand() % QTD_ARMARIOS);
-  aux = armarios | aux;
-  if (armarios == aux) {
-    puts("Atribuição inválida -- Posição já ocupada");
+  do{
+    aux = 1 << (rand() % QTD_ARMARIOS);
+    aux = armarios | aux;
+    if (aux == 255) {
+      puts("Todos os armários ocupados");
+      break;
     }
-  else armarios = aux;  
+  } while (armarios == aux);
+  armarios = aux;  
   return armarios;
 }
 /////////////////////////////////////////////////////////
@@ -77,16 +80,26 @@ unsigned char ocupandoArmarios (unsigned char armarios) {
 //  Função para desocupar um armário:
 ////////////////////////////////////////////////////////////
 unsigned char desocupandoArmarios (unsigned char armarios) {
-  unsigned char aux;
-  scanf ("%hhu", &aux);
-  if (aux < 0 || aux > 7) {
-    puts("Atribuição inválida -- Posição inválida");
+  unsigned char aux, flag;
+  do{
+    flag = 0;
+    scanf ("%hhu", &aux);
+    if (aux > 7) {
+      puts ("Posição Invalida. Escolha outra");
+      flag = 1;
+      continue;
     }
-  else aux = armarios & (~(1 << aux));
-  if (armarios == aux) {
-          puts("Atribuição inválida -- Posição já desocupada");
+    aux = armarios & (~(1 << aux));
+    if (aux == 0) {
+      puts ("Todos armários já desocupados");
+      break;
     }
-  else armarios = aux;
+    if (aux == armarios) {
+      puts ("Posição já desocupada. Escolha outra.");
+      continue;
+    }
+  } while ((armarios == aux) || (flag == 1));
+  armarios = aux;
   return armarios;
   }
 /////////////////////////////////////////////////////////////
