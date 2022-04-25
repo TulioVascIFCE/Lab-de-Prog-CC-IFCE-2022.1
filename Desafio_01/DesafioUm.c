@@ -74,6 +74,10 @@ unsigned char ocupandoArmarios (unsigned char armarios) {
 unsigned char desocupandoArmarios (unsigned char armarios) {
   unsigned char aux, flag;
   do{
+    if (armarios == 0) {
+      puts ("Todos armários já desocupados");
+      break;
+    }
     flag = 0;
     scanf ("%hhu", &aux);
     if (aux > 7) {
@@ -82,10 +86,6 @@ unsigned char desocupandoArmarios (unsigned char armarios) {
       continue;
     }
     aux = armarios & (~(1 << aux));
-    if (aux == 0) {
-      puts ("Todos armários já desocupados");
-      break;
-    }
     if (aux == armarios) {
       puts ("Posição já desocupada. Escolha outra.");
       continue;
