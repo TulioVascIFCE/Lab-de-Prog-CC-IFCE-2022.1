@@ -7,10 +7,10 @@ float maiorElemento (float *vetor);
 float menorElemento (float *vetor);
 
 int main (){
-	//Variaveis
+	//Variáveis
 	float vetor[TAMANHO], soma;
 	
-	//Leitura de dados - Aleatorio
+	//Leitura de dados - Aleatório
 	puts ("Vetor Aleatório:");
 	srand (time (NULL));
 	for (int i = 0; i < TAMANHO; i++){
@@ -18,7 +18,7 @@ int main (){
 		printf ("%.2f  ", * (vetor + i));
 	}
 	
-	//Saida de dados
+	//Saída de dados
 	puts ("");
 	soma = maiorElemento (vetor) + menorElemento (vetor);
 	printf ("Soma: %.2f\n", soma);
