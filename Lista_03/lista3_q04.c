@@ -5,38 +5,39 @@
 
 int main (){
 	//Variáveis:
-	unsigned char vetorUm[TAMANHO], vetorDois[TAMANHO], v[TAMANHO], aux, i = 0, j = 0;
+	unsigned char vetorUm[TAMANHO], vetorDois[TAMANHO], aux;
 	char iguais = 'S';
 	
 	//Leitura de Dados - Usuário;
-	for (int k = 0; k < 2; k++){
-		printf ("Entre com a String %d", k+1);
-		fgets (v, TAMANHO, stdin);
-		if (v[strlen (v) - 1] == '\n') v[strlen (v) - 1] = '\0';
-		else {
-			do {
+	//Vetor Um
+	puts("Entre com a String Um:");
+	fgets (vetorUm, TAMANHO, stdin);
+	if (vetorUm[strlen (vetorUm) - 1] == '\n') vetorUm[strlen (vetorUm) - 1] = '\0';
+	else {
+		do {
 			aux = getchar ();
-			}while (aux != '\n');
-		}
-		if (k == 0){
-			while (v[i] != '\0'){
-				vetorUm[i] = v[i];
-				i++;
-			}
-		}else{
-			while (v[j] != '\0'){
-				vetorDois[j] = v[j];
-				j++;
-			}
-		}
+		}while (aux != '\n');
+	}
+	//Vetor Dois
+	puts("Entre com a String Dois:");
+	fgets (vetorDois, TAMANHO, stdin);
+	if (vetorDois[strlen (vetorDois) - 1] == '\n') vetorDois[strlen (vetorDois) - 1] = '\0';
+	else {
+		do {
+			aux = getchar ();
+		}while (aux != '\n');
 	}
 
-	//Processamento de Dados:
+	//Processamento de Dados - Sem strcmp():
 	aux = 0;
-	while (v[aux] != '\0'){
+	while ((vetorUm[aux] != '\0') || (vetorDois[aux] != '\0')){
 		if(vetorUm[aux] != vetorDois[aux]) iguais = 'N';
 		aux++;
 	}
+
+	//Processamento de Dados - Comm strcmp():
+	if (strcmp (vetorUm, vetorDois) != 0) iguais = 'N';
+	
 	//Saída de Dados:
 	printf("Os vetores são iguais: %c (S = Sim, N = Não)\n", iguais);
 	
