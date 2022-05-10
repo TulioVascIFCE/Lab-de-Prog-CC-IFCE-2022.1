@@ -1,22 +1,28 @@
+// Desafio 1 otimzado com ponteiros em 10/05/2022
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 //  Macro para auxiliar a gerar inteiros pseudo-aleatórios entre 0 e 7:
 #define QTD_ARMARIOS 8
 
 //  Funções para evitar repetições e tentar o código mais limpo:
-unsigned char ocupandoArmarios (unsigned char);
-unsigned char desocupandoArmarios (unsigned char);
-void imprimirMapa (unsigned char);
+void ocupandoArmarios (unsigned char * armarios);
+void desocupandoArmarios (unsigned char * armarios);
+void imprimirMapa (unsigned char * armarios);
 
 int main () {
   //  Declarando Variáveis:
   unsigned char menu, armarios = 0;
-  
+
+  // Garantindo que ao iniciar,
+  // o programa vai ocupar armarios de forma pseudo-aleatória
+  srand (time (NULL));
+
   //  Entrando no Programa:
   do {
     //  Mapa dos Armarios atualizado:
-    imprimirMapa (armarios);
+    imprimirMapa (&armarios);
     
     //  Apresentando o Menu:
     puts ("Olá usuario!");
@@ -31,13 +37,13 @@ int main () {
     switch (menu) {
       case 1:
         //  Ocupando os armários de modo aleatório:
-        armarios = ocupandoArmarios (armarios);
+        ocupandoArmarios (&armarios);
         break;
       
       case 2:
         //  Selecionando o armário que será desocupado:
         puts ("Escolha uma posição para desocupar:");
-        armarios = desocupandoArmarios(armarios);
+        desocupandoArmarios(&armarios);
         break;
       
       default:
@@ -54,27 +60,25 @@ int main () {
 
 //  Função para ocupar armários:
 /////////////////////////////////////////////////////////
-unsigned char ocupandoArmarios (unsigned char armarios) {
+void ocupandoArmarios (unsigned char * armarios) {
   unsigned char aux;
   do{
-    aux = 1 << (rand() % QTD_ARMARIOS);
-    aux = armarios | aux;
+    aux = *armarios | (1 << (rand() % QTD_ARMARIOS));
     if (aux == 255) {
       puts("Todos os armários ocupados");
       break;
     }
-  } while (armarios == aux);
-  armarios = aux;  
-  return armarios;
+  } while (*armarios == aux);
+  *armarios = aux;
 }
 /////////////////////////////////////////////////////////
 
 //  Função para desocupar um armário:
 ////////////////////////////////////////////////////////////
-unsigned char desocupandoArmarios (unsigned char armarios) {
+void desocupandoArmarios (unsigned char * armarios) {
   unsigned char aux, flag;
   do{
-    if (armarios == 0) {
+    if (*armarios == 0) {
       puts ("Todos armários já desocupados");
       break;
     }
@@ -85,23 +89,22 @@ unsigned char desocupandoArmarios (unsigned char armarios) {
       flag = 1;
       continue;
     }
-    aux = armarios & (~(1 << aux));
-    if (aux == armarios) {
+    aux = *armarios & (~(1 << aux));
+    if (aux == *armarios) {
       puts ("Posição já desocupada. Escolha outra.");
       continue;
     }
-  } while ((armarios == aux) || (flag == 1));
-  armarios = aux;
-  return armarios;
+  } while ((*armarios == aux) || (flag == 1));
+  *armarios = aux;
   }
 /////////////////////////////////////////////////////////////
 
 //  Função para exibir os armários:
 /////////////////////////////////////////////
-void imprimirMapa (unsigned char armarios) {
+void imprimirMapa (unsigned char * armarios) {
   unsigned char aux;
   printf("Armários:\t");
-  for (int j = 7; j >= 0; j--) printf("%u", aux = (armarios & (1 << j)) ? 1 : 0);
+  for (int j = 7; j >= 0; j--) printf("%u", aux = (*armarios & (1 << j)) ? 1 : 0);
   printf ("\t(0-Desocupado 1-Ocupado)");
   printf ("\nPosições:\t76543210\n");
   }
