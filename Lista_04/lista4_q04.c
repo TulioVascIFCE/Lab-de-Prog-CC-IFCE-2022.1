@@ -23,10 +23,14 @@ int main () {
 
 	puts ("Vetores e Endereços:");
 	printf ("Caractere\tEndereço\n");
-	for (int k = 0; k < TAMANHO; k++) printf ("%c\t%p\n", *(pc +  k), pc + k);
+	for (int k = 0; k < TAMANHO; k++)
+		printf ("%c\t%p\n", *(pc +  k), pc + k);
 	printf ("Inteiro\tEndereço\n");
-	for (int k = 0; k < TAMANHO; k++) printf ("%d\t%p\n", *(pi + k), pi + k);
+	for (int k = 0; k < TAMANHO; k++)
+		printf ("%d\t%p\n", *(pi + k), pi + k);
 	printf ("Ponto Flutuante\tEndereço\n");
-	for (int k = 0; k < TAMANHO; k++) printf ("%.2f\t%p\n", *(pf + k), pf + k);
+	for (int k = 0; k < TAMANHO; k++)
+		printf ("%.2f\t%p\n", *(pf + k), pf + k);
+	
 	return 0;
 }
