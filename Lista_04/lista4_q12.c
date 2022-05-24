@@ -27,7 +27,7 @@ int main () {
 	puts("Qual o limite N do intervalo? (0 até N-1)");
 	scanf("%d", &intervalo);
 	
-	//srand (time (NULL));
+	srand (time (NULL));
 	for (int k = 0; k < vTam; k++)
 		*(vetor_X + k) = rand () % intervalo;
 
@@ -84,7 +84,7 @@ void gerandoY (int *Ax, int *By, int nT, int nM) {
 				if ((5 < r) && (r <= 7)){
 					*(By + k) = (*(Ax + k) == (nM - 1)) ? *(Ax + k) : *(Ax + k) + 1;
 				} else {
-					if ((8 < r) && (r <= 9)){
+					if ((7 < r) && (r <= 9)){
 						*(By + k) = (*(Ax + k) <= 1) ? *(Ax + k) : *(Ax + k) - 2;
 					} else {
 						if ((9 < r) && (r <= 10)){
