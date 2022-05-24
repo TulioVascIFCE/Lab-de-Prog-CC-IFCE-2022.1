@@ -11,7 +11,7 @@ int main () {
 	
 	//Arranjo aleatório:
 	for (int i = 0; i < TAMANHO; i++)
-		*(arranjo + i) = ' ' + (rand() & 94);
+		*(arranjo + i) = ' ' + (rand() % 94);
 	
 	//Valor a ser procurado:
 	puts("Entre com o valor de X:");
