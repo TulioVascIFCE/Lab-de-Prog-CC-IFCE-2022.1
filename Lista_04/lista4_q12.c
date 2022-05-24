@@ -89,9 +89,7 @@ void gerandoY (int *Ax, int *By, int nT, int nM) {
 					} else {
 						if ((9 < r) && (r <= 10)){
 							*(By + k) = (*(Ax + k) >= (nM - 2)) ? *(Ax + k) : *(Ax + k) + 2;
-						} else {
-							if (r >= nM ) *(By + k) = rand () % nM;
-						}
+						} 
 					}
 				}
 			}
