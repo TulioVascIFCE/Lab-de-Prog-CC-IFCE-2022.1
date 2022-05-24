@@ -2,7 +2,7 @@
 
 int main (){
 	int entrada, menor, aux;
-	int *e, *m;
+	int *e = NULL, *m = NULL;
 
 	e = &entrada;
 	m = &menor;

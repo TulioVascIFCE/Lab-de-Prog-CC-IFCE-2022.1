@@ -2,7 +2,7 @@
 
 int main(){
 	int numero_a, numero_b, aux;
-	int *p, *q;
+	int *p = NULL, *q = NULL;
 
 	p = &numero_a;
 	q = &numero_b;

@@ -2,7 +2,7 @@
 
 int main(){
 	int parcela_a, parcela_b, soma;
-	int *a, *b, *s;
+	int *a = NULL, *b  = NULL, *s = NULL;
 
 	a = &parcela_a;
 	b = &parcela_b;

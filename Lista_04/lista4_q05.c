@@ -10,6 +10,14 @@ int main () {
 	scanf("%[^\n]", string);
 	getchar();
 
+	/*
+	//Alternativo
+	puts ("Entre com uma string:");
+	getchar();
+	gets(string);
+	getchar();
+	*/
+
 	puts ("Tamanho da string:");
 	while(*(string + aux) != '\0') ++aux;
 	

@@ -3,9 +3,9 @@
 #define TAMANHO 3
 
 int main () {
-	char caractere [TAMANHO], *pc;
-	int inteiro[TAMANHO], *pi;
-	float ponto_flutuante[TAMANHO], *pf;
+	char caractere [TAMANHO], *pc = NULL;
+	int inteiro[TAMANHO], *pi = NULL;
+	float ponto_flutuante[TAMANHO], *pf = NULL;
 
 	pc = caractere;
 	pi = inteiro;
@@ -22,6 +22,7 @@ int main () {
 	}
 
 	puts ("Vetores e Endereços:");
+	
 	printf ("Caractere\tEndereço\n");
 	for (int k = 0; k < TAMANHO; k++)
 		printf ("%c\t%p\n", *(pc +  k), pc + k);
