@@ -76,5 +76,5 @@ void algoritmo_rol (int *Ax, int *By, int *Cm, int nT, int nM) {
 		for (int j = 0; j < nM ; j++)      // j = coluna de M
 			for (int k = 0; k < nT ; k++) // k = tam. do vetor
 				if ((*(Ax + k) == j) && (*(By + k) == i))
-					//*(Cm + )++;
+					(*(Cm + (nM * i) + j))++;
 }
