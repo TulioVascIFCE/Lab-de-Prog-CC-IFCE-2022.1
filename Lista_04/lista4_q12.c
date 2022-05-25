@@ -73,6 +73,7 @@ int main () {
 
 void gerandoY (int *Ax, int *By, int nT, int nM) {
 	int r;
+	
 	for (int k = 0; k < nT; k++){
 		r = rand () % 11;
 		if ((0 < r) && (r <= 3)){

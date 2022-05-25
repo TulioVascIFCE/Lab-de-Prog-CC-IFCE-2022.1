@@ -3,6 +3,7 @@
 #include <time.h>
 
 void algoritmo_rol (int *, int *, int *, int , int);
+int diagonais (int *, int);
 
 int main () {
 	int *vetor_X, *vetor_Y, *matriz_M;
@@ -63,7 +64,7 @@ int main () {
 	}
 	printf("\n");
 
-	//diagonais (matriz_M, intervalo);
+	diagonais (matriz_M, intervalo);
 	
 	free(vetor_X);
 	free(vetor_Y);
@@ -74,14 +75,19 @@ int main () {
 
 void algoritmo_rol (int *Ax, int *By, int *Cm, int nT, int nM) {
 	// Obs: Ax = coluna e By = linha
+	///*
 	for (int i = 0; i < nM ; i++)           // i = linha de M
 		for (int j = 0; j < nM ; j++)      // j = coluna de M
 			for (int k = 0; k < nT ; k++) // k = tam. do vetor
 				if ((*(Ax + k) == j) && (*(By + k) == i))
 					(*(Cm + (nM * i) + j))++;
+	//*/
+	/*
+	for(int k =0; k < nT; k++) (*(Cm))++;
+	*/
 }
 
-/*
+
 int diagonais (int *M, int n) {
 	int diagP = 0, diagS = 0;
 	for (int k  = 0; k < n*n; k += (n+1))
@@ -91,4 +97,3 @@ int diagonais (int *M, int n) {
 	printf("Soma -- Principal: %d, Secundária: %d\n", diagP, diagS);
 	return 0;
 }
-*/
