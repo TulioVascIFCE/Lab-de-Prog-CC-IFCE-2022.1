@@ -62,6 +62,8 @@ int main () {
 		printf("%d\t", *(matriz_M + k));
 	}
 	printf("\n");
+
+	//diagonais (matriz_M, intervalo);
 	
 	free(vetor_X);
 	free(vetor_Y);
@@ -78,3 +80,15 @@ void algoritmo_rol (int *Ax, int *By, int *Cm, int nT, int nM) {
 				if ((*(Ax + k) == j) && (*(By + k) == i))
 					(*(Cm + (nM * i) + j))++;
 }
+
+/*
+int diagonais (int *M, int n) {
+	int diagP = 0, diagS = 0;
+	for (int k  = 0; k < n*n; k += (n+1))
+		diagP += *(M + k);
+	for (int k = (n-1); k < n*n ; k += (n-1))
+		diagS += *(M + k);
+	printf("Soma -- Principal: %d, Secundária: %d\n", diagP, diagS);
+	return 0;
+}
+*/

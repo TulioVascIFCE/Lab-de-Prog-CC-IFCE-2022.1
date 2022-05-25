@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -68,3 +69,4 @@ void imprimirMatriz(int *p, int qtdLin, int qtdCol){
     }
     printf("\n");
 }
+*/
