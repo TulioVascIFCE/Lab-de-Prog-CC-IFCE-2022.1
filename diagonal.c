@@ -88,6 +88,6 @@ int diagonais (int *M, int n) {
 		diagP += *(M + k);
 	for (int k = (n-1); k < n*n ; k += (n-1))
 		diagS += *(M + k);
-	printf("%d %d\n", diagP, diagS);
+	printf("Soma -- Principal: %d, Secundária: %d\n", diagP, diagS);
 	return 0;
 }
