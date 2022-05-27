@@ -27,19 +27,17 @@ int main () {
 	puts("Qual o limite N do intervalo? (0 até N-1)");
 	scanf("%d", &intervalo);
 	
-	//srand (time (NULL));
+	srand (time (NULL));
 	for (int k = 0; k < vTam; k++) {
 		*(vetor_X + k) = rand () % intervalo;
 		*(vetor_Y + k) = rand () % intervalo;
 	}
 
-	matriz_M = malloc((intervalo * intervalo) * sizeof(int));
+	matriz_M = calloc((intervalo * intervalo), sizeof(int));
 	if (!matriz_M) {
 		puts("Falha na solitação de memória!");
 		exit(1);
 	}
-	for (int k = 0; k < (intervalo * intervalo); k++)
-		*(matriz_M + k) = 0;
 
 	algoritmo_rol (vetor_X, vetor_Y, matriz_M, vTam, intervalo);
 
@@ -75,16 +73,7 @@ int main () {
 
 void algoritmo_rol (int *Ax, int *By, int *Cm, int nT, int nM) {
 	// Obs: Ax = coluna e By = linha
-	///*
-	for (int i = 0; i < nM ; i++)           // i = linha de M
-		for (int j = 0; j < nM ; j++)      // j = coluna de M
-			for (int k = 0; k < nT ; k++) // k = tam. do vetor
-				if ((*(Ax + k) == j) && (*(By + k) == i))
-					(*(Cm + (nM * i) + j))++;
-	//*/
-	/*
-	for(int k =0; k < nT; k++) (*(Cm))++;
-	*/
+	for(int k =0; k < nT; k++) (*(Cm + (nM * *(Ax + k)) + *(By + k)))++;
 }
 
 

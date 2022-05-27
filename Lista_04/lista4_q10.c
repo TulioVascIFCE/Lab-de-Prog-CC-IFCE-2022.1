@@ -24,13 +24,11 @@ int main () {
 	for (int k = 0; k < vTam; k++)
 		*(vetor_X + k) = rand () % intervalo;
 
-	vetor_F = malloc(intervalo * sizeof (int));
+	vetor_F = calloc(intervalo, sizeof (int));
 	if (!vetor_F) {
 		puts("Falha na solitação de memória!");
 		exit(1);
 	}
-	for (int k = 0; k < intervalo; k++)
-		*(vetor_F + k) = 0;
 
 	bubbleSort (vetor_X, vTam);
 	algoritmo_rol (vetor_X, vetor_F, vTam, intervalo);

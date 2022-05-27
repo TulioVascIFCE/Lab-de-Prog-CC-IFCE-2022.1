@@ -33,13 +33,11 @@ int main () {
 
 	gerandoY(vetor_X, vetor_Y, vTam, intervalo);
 
-	matriz_M = malloc((intervalo * intervalo) * sizeof(int));
+	matriz_M = calloc((intervalo * intervalo), sizeof(int));
 	if (!matriz_M) {
 		puts("Falha na solitação de memória!");
 		exit(1);
 	}
-	for (int k = 0; k < (intervalo * intervalo); k++)
-		*(matriz_M + k) = 0;
 
 	algoritmo_rol (vetor_X, vetor_Y, matriz_M, vTam, intervalo);
 
@@ -72,37 +70,17 @@ int main () {
 }
 
 void gerandoY (int *Ax, int *By, int nT, int nM) {
-	int r;
-	
-	for (int k = 0; k < nT; k++){
+	int r, w[11] = {0,0,0,-1,-1,1,1,-2,-2,2,2};
+
+	for (int k = 0; k < nT; k++) {
 		r = rand () % 11;
-		if ((0 < r) && (r <= 3)){
-			*(By + k) = *(Ax + k);
-		} else {
-			if ((3 < r) && (r <= 5)){
-				*(By + k) = (*(Ax + k) == 0) ? *(Ax + k) : *(Ax + k) - 1;
-			} else {
-				if ((5 < r) && (r <= 7)){
-					*(By + k) = (*(Ax + k) == (nM - 1)) ? *(Ax + k) : *(Ax + k) + 1;
-				} else {
-					if ((7 < r) && (r <= 9)){
-						*(By + k) = (*(Ax + k) <= 1) ? *(Ax + k) : *(Ax + k) - 2;
-					} else {
-						if ((9 < r) && (r <= 10)){
-							*(By + k) = (*(Ax + k) >= (nM - 2)) ? *(Ax + k) : *(Ax + k) + 2;
-						} 
-					}
-				}
-			}
-		}
+		*(By + k) = *(Ax + k) + w[r];
+		if (*(By + k) < 0) *(By + k) = 0;
+		if (*(By + k) >= nM) *(By + k) = (nM -1);
 	}
 }
 
 void algoritmo_rol (int *Ax, int *By, int *Cm, int nT, int nM) {
 	// Obs: Ax = coluna e By = linha
-	for (int i = 0; i < nM ; i++)           // i = linha de M
-		for (int j = 0; j < nM ; j++)      // j = coluna de M
-			for (int k = 0; k < nT ; k++) // k = tam. do vetor
-				if ((*(Ax + k) == j) && (*(By + k) == i))
-					(*(Cm + (nM * i) + j))++;
+	for(int k =0; k < nT; k++) (*(Cm + (nM * *(Ax + k)) + *(By + k)))++;
 }
