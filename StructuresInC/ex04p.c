@@ -1,7 +1,7 @@
 // Revising the Program to Determine Tomorrow’s Date, Version 2 (w/ Leap Year) - Pointers
 /*
-Suppose you want to write a simple program that accepts today’s date as input and displays 
-tomorrow’s date to the user.
+	Suppose you want to write a simple program that accepts today’s date as input and displays 
+	tomorrow’s date to the user.
 */
 
 #include <stdio.h>

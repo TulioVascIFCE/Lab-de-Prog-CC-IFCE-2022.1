@@ -1,7 +1,7 @@
 // Program to Determining Tomorrow’s Date (No Leap Year)
 /*
-Suppose you want to write a simple program that accepts today’s date as input and displays 
-tomorrow’s date to the user.
+	Suppose you want to write a simple program that accepts today’s date as input and displays 
+	tomorrow’s date to the user.
 */
 
 #include <stdio.h>

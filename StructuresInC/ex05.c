@@ -1,7 +1,7 @@
 // Program to update the time by one second
 /*
-You have the need to store values inside a program that represents various times 
-expressed as hours, minutes, and seconds and updates the time by one second
+	You have the need to store values inside a program that represents various times 
+	expressed as hours, minutes, and seconds and updates the time by one second
 */
 #include <stdio.h>
 
@@ -22,7 +22,7 @@ int main ()
     currentTimePoint = &currentTime;
     nextTimePoint = &nextTime;
 
-    puts("Entrer the time (hh:mm:ss):");
+    puts("Enter the time (hh:mm:ss):");
     scanf("%i:%i:%i", &currentTimePoint->hours,
             &currentTimePoint->minutes, &currentTimePoint->seconds);
 
