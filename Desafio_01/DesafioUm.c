@@ -7,9 +7,9 @@
 #define QTD_ARMARIOS 8
 
 //  Funções para evitar repetições e tentar o código mais limpo:
-void ocupandoArmarios (unsigned char * armarios);
-void desocupandoArmarios (unsigned char * armarios);
-void imprimirMapa (unsigned char * armarios);
+void ocupandoArmarios (unsigned char *);
+void desocupandoArmarios (unsigned char *);
+void imprimirMapa (unsigned char *);
 
 int main () {
   //  Declarando Variáveis:
