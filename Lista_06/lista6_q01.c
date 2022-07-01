@@ -1,3 +1,6 @@
+/*
+	Escreva um programa em C que utilize uma Estrutura aluno para conter n notas, lidas do usuário, e sua média.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

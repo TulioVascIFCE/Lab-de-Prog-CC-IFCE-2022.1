@@ -1,3 +1,7 @@
+/*
+	Escreva um programa em C que gere um vetor com números aleatórios e calcule sua média.
+	Organize uma Estrutura com as seguintes informações: ponteiro para a matriz, quantidade de elementos e a média.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
