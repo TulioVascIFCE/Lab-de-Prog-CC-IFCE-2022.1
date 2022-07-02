@@ -6,12 +6,12 @@
 #include <stdlib.h>
 
 struct professor{
-	char matricula, departamento;
+	char matricula[5], departamento[10];
 };
 
 struct disciplina{
     int codigo;
-	char horas;
+	char horas[8];
 	struct professor *docente;
 };
 
