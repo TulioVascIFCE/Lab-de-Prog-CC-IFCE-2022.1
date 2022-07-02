@@ -4,7 +4,7 @@
 
 int main()
 {
-    int x[2];
+    int x;
   
     printf("Entre com um valor inteiro: ");
     scanf("%d", &x);
