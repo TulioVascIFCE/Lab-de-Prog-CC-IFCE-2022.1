@@ -7,7 +7,7 @@
 void aleatoria(int *, int*);
 void matrizDentroMatriz(int *, int *, int *);
 void lbp(int *, int *, int *);
-//void binaria(int *, int *, int *);
+void binaria(int *);
 void exibirMatriz(int *, int*);
 
 int main(int argc, char *argv[]){
@@ -61,11 +61,11 @@ int main(int argc, char *argv[]){
 	lbp(matriz_Aux, matriz_S, vetor);
 	
 	//Exibindo os dados
-	//puts("Matriz M (Original):");
-	//exibirMatriz(matriz_M, vetor);
+	puts("\nMatriz M (Original):");
+	exibirMatriz(matriz_M, vetor);
 
-	//puts("Matriz Aux (Auxiliar):");
-	//exibirMatriz(matriz_Aux, vetor + 5);
+	puts("Matriz Aux (Auxiliar):");
+	exibirMatriz(matriz_Aux, vetor + 5);
 
 	//puts("Matriz S (Binária):");
 	//exibirMatriz(matriz_S, vetor);
@@ -104,20 +104,49 @@ void lbp(int *A, int *B, int *v){
 	int aux[3] = {-1, 0, 1};
 	for( int k = *(v + 6) + 1; k < *(v + 5) * *(v + 6) - *(v + 6); k++){
 		if( k % *(v + 6) == 0 || k % *(v + 6) == *(v + 6) - 1 ) continue;
-		//printf("\nSub Matriz %d:", k);
+		printf("\nSub Matriz %d:", k);
 		for( int i = 0; i < 3; i++){
 			for( int j = 0; j < 3; j++){
 				*(subMatriz + 3*i + j) = *(A + *(v + 5)*aux[i] + aux[j] + k);
-				//if( !(j%3) ) printf("\n");
-				//printf("%d\t", *(subMatriz + 3*i + j));
-				
+				binaria(subMatriz);
+				if( !(j%3) ) printf("\n");
+				printf("%d\t", *(subMatriz + 3*i + j));
 			}
 		}
 	}
 	//puts("");
 }
 
-void binaria(int *A, int *B, int *lim){
-	for (int k = 0; k < (*lim * *(lim + 1)); k++)
-		if (*(A + k) > *(lim + 4)) *(B + k) = 1;
+void binaria(int *A){
+	for (int k = 0; k < 8; k++){
+		if (k == 4) continue;
+		else if (*(A + k) > *(A + 4)) *(A + k) = 1;
+		else *(A + k) = 0;
+		}
 }
+
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#include <dirent.h>
+
+int main(void)
+{
+
+    DIR *dir;
+    struct dirent *lsdir;
+
+    dir = opendir("c:\\Windows\\");
+
+    //print all the files and directories within directory
+    while ( ( lsdir = readdir(dir) ) != NULL )
+    {
+        printf ("%s\n", lsdir->d_name);
+    }
+
+    closedir(dir);
+
+    return 0;
+
+}
+*/
